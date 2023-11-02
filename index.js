@@ -10,11 +10,17 @@ const freelancers = [
 ];
 
 const body = document.body
-const head = document.createElement('h1')
-head.textContent = "Welcome to the Freelancer Forum"
+const header = document.createElement('h1')
+header.textContent = "Welcome to the Freelancer Forum"
+header.setAttribute("style", "text-align:center")
+body.appendChild(header)
+
+const avgDeclare = document.createElement('h3')
+avgDeclare.setAttribute("style", "text-align:center")
+body.appendChild(avgDeclare)
 
 
-body.appendChild(head)
+
 function averageFinder(array) {
   const sum = array.reduce(
     (accumulator, currentValue) => accumulator + currentValue.price, 0
@@ -23,5 +29,7 @@ function averageFinder(array) {
   console.log(ave)
   return ave
 }
-averageFinder(freelancers)
+const average = averageFinder(freelancers)
+
+avgDeclare.textContent = `The average starting price is ${average}`
 

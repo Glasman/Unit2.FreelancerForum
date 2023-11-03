@@ -1,12 +1,12 @@
 const freelancers = [
-  { name: "Dr. Slice", price: 25, occupation: "gardener" },
-  { name: "Dr. Pressure", price: 51, occupation: "programmer" },
-  { name: "Prof. Possibility", price: 43, occupation: "teacher" },
-  { name: "Prof. Prism", price: 81, occupation: "teacher" },
-  { name: "Dr. Impulse", price: 43, occupation: "teacher" },
-  { name: "Prof. Spark", price: 76, occupation: "programmer" },
-  { name: "Dr. Wire", price: 47, occupation: "teacher" },
-  { name: "Prof. Goose", price: 72, occupation: "driver" },
+  { name: "Dr. Slice", price: 25, occupation: "Gardener" },
+  { name: "Dr. Pressure", price: 51, occupation: "Programmer" },
+  { name: "Prof. Possibility", price: 43, occupation: "Teacher" },
+  { name: "Prof. Prism", price: 81, occupation: "Teacher" },
+  { name: "Dr. Impulse", price: 43, occupation: "Teacher" },
+  { name: "Prof. Spark", price: 76, occupation: "Programmer" },
+  { name: "Dr. Wire", price: 47, occupation: "Teacher" },
+  { name: "Prof. Goose", price: 72, occupation: "Driver" },
 ];
 
 const body = document.body
@@ -18,8 +18,6 @@ body.appendChild(header)
 const avgDeclare = document.createElement('h3')
 avgDeclare.setAttribute("style", "text-align:center")
 body.appendChild(avgDeclare)
-
-
 
 function averageFinder(array) {
   const sum = array.reduce(
@@ -33,3 +31,15 @@ const average = averageFinder(freelancers)
 
 avgDeclare.textContent = `The average starting price is ${average}`
 
+const header2 = document.createElement('h1')
+header2.textContent = "Available Freelancers"
+header2.setAttribute("style", "text-align:center")
+body.appendChild(header2)
+
+const freelancerList = document.createElement("ol");
+body.appendChild(freelancerList);
+freelancers.forEach(freelancer => {
+  const li = document.createElement("li");
+  li.textContent = `${freelancer.name}, ${freelancer.occupation}: $${freelancer.price}`;
+  freelancerList.appendChild(li);
+});
